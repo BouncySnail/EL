@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elektro Informasjon og Quiz</title>
+    <style>
+        body {
+            background-color: #1c99F9;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            text-align: center;
+            padding: 10px;
+            background-color: white;
+        }
+        .header img {
+            width: 100px;
+            height: 100px;
+        }
+        .faktaboks, .quiz-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px; /* Større padding */
+            background-color: #fff;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+	    border: solid;
+
+        }
+        .question {
+            font-weight: bold;
+        }
+        .option {
+            display: block;
+            margin: 10px; 
+            padding: 10px; 
+            cursor: pointer;
+            border: 1px solid #aaa; 
+            text-align: center; 
+        }
+        .correct {
+            background-color: #90ee90; 
+        }
+        .wrong {
+            background-color: #f08080; 
+        }
+        @media (max-width: 768px) {
+            .faktaboks, .quiz-container {
+                margin: 20px 10px;
+            }
+            .header img {
+                width: 70px;
+                height: 70px;
+            }
+        }
+        .section {
+            display: none; 
+        }
+    </style>
+    <script>
+        
+        function showSection() {
+            const hash = window.location.hash;
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = (section.id === hash.substring(1)) ? 'block' : 'none';
+            });
+        }
+
+        
+        window.addEventListener('hashchange', showSection, false);
+        window.addEventListener('load', showSection, false);
+    </script>
+</head>
+<body>
+
+<div id="kontaktor" class="section">
+    <div class="faktaboks">
+        <h1>Kontaktor</h1>
+        <p>Ein kontaktor er eit rele som kan takle større straumar som til dømes motorar og varmekablar.</p>
+    </div>
+    <div class="quiz-container">
+        <div class="question">Kva er spolen på eit rele merka med?</div>
+        <div class="option" onclick="checkAnswer(this, 'correct')">A1 og A2</div>
+        <div class="option" onclick="checkAnswer(this, 'wrong')">S1 og S2</div>
+        <div class="option" onclick="checkAnswer(this, 'wrong')">A og B</div>
+        <div class="question">Kva er NO</div>
+        <div class="option" onclick="checkAnswer(this, 'wrong')">15 16</div>
+        <div class="option" onclick="checkAnswer(this, 'correct')">13 14</div>
+        <div class="option" onclick="checkAnswer(this, 'wrong')">A og B</div>
+    </div>
+</div>
+<div id="heis" class="section">
+    <div class="faktaboks">
+        <h1>Heis</h1>
+        <p>Går opp og ned</p>
+    </div>
+    <div class="quiz-container">
+        <div class="question">Går</div>
+        <div class="option" onclick="checkAnswer(this, 'correct')">Opp</div>
+        <div class="option" onclick="checkAnswer(this, 'wrong')">ned</div>
+        <div class="option" onclick="checkAnswer(this, 'wrong')">bort</div>
+    </div>
+</div>
+    <script>
+     
+    </script>
+</body>
+</html>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer(element, status) {
+            if (status === 'correct') {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('wrong');
+            }
+        }
+    </script>
+</body>
+</html>
